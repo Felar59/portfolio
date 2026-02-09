@@ -113,7 +113,7 @@ export function Contact() {
         <div className="grid md:grid-cols-2 gap-12">
           <div className="flex flex-col gap-6">
             <p className="text-muted-foreground leading-relaxed">
-              {"Vous avez un projet en tete ou vous souhaitez simplement discuter tech ? N'hesitez pas a me contacter, je suis toujours ouvert aux nouvelles opportunites et collaborations."}
+              {"Pour toute demande, projet ou collaboration, vous pouvez me contacter via ce formulaire ou les plateformes ci-dessous."}
             </p>
 
             <div className="flex flex-col gap-4 mt-2">
