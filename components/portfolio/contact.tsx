@@ -1,0 +1,143 @@
+"use client";
+import { Github, Linkedin, Mail } from "lucide-react"
+import { SectionHeader } from "./section-header"
+import { useForm, ValidationError } from '@formspree/react';
+
+export function ContactForm() {
+  const [state, handleSubmit] = useForm("xojnvnzo");
+
+  if (state.succeeded) {
+    return (
+      <div className="bg-card border border-border rounded-lg p-6 sm:p-8">
+        <p className="text-primary font-medium">
+          Message envoyé avec succès.
+        </p>
+      </div>
+    );
+  }
+
+  return (
+    <div className="bg-card border border-border rounded-lg p-6 sm:p-8">
+      <h3 className="text-lg font-semibold text-foreground mb-6">
+        Envoyer un message
+      </h3>
+
+      <form onSubmit={handleSubmit} className="flex flex-col gap-4">
+        {/* Nom */}
+        <div className="flex flex-col gap-2">
+          <label className="text-xs text-muted-foreground font-medium">
+            Nom
+          </label>
+          <input
+            type="text"
+            name="name"
+            placeholder="Votre nom"
+            className="bg-secondary border border-border rounded-md px-4 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-primary transition-colors"
+          />
+        </div>
+
+        {/* Email */}
+        <div className="flex flex-col gap-2">
+          <label className="text-xs text-muted-foreground font-medium">
+            Email
+          </label>
+          <input
+            type="email"
+            name="email"
+            placeholder="votre@email.com"
+            required
+            className="bg-secondary border border-border rounded-md px-4 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-primary transition-colors"
+          />
+          <ValidationError prefix="Email" field="email" errors={state.errors} />
+        </div>
+
+        {/* Message */}
+        <div className="flex flex-col gap-2">
+          <label className="text-xs text-muted-foreground font-medium">
+            Message
+          </label>
+          <textarea
+            name="message"
+            rows={4}
+            placeholder="Votre message..."
+            required
+            className="bg-secondary border border-border rounded-md px-4 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-primary transition-colors resize-none"
+          />
+          <ValidationError
+            prefix="Message"
+            field="message"
+            errors={state.errors}
+          />
+        </div>
+
+        <button
+          type="submit"
+          disabled={state.submitting}
+          className="mt-2 bg-primary text-white px-6 py-2.5 text-sm font-medium rounded-lg hover:brightness-110 transition-all duration-200 disabled:opacity-50"
+        >
+          Envoyer
+        </button>
+      </form>
+    </div>
+  );
+}
+
+
+const socials = [
+  {
+    label: "Email",
+    value: "felixlecuyer2@gmail.com",
+    href: "mailto:felixlecuyer2@gmail.com",
+    icon: Mail,
+  },
+  {
+    label: "GitHub",
+    value: "github.com/Felar59",
+    href: "https://github.com/Felar59",
+    icon: Github,
+  },
+  {
+    label: "LinkedIn",
+    value: "linkedin.com/in/felixlecuyer",
+    href: "https://www.linkedin.com/in/felix-lecuyer-09a64039a/",
+    icon: Linkedin,
+  },
+]
+
+export function Contact() {
+  return (
+    <section id="contact" className="py-24 px-6">
+      <div className="mx-auto max-w-6xl">
+        <SectionHeader number="04" title="contact" />
+
+        <div className="grid md:grid-cols-2 gap-12">
+          <div className="flex flex-col gap-6">
+            <p className="text-muted-foreground leading-relaxed">
+              {"Vous avez un projet en tete ou vous souhaitez simplement discuter tech ? N'hesitez pas a me contacter, je suis toujours ouvert aux nouvelles opportunites et collaborations."}
+            </p>
+
+            <div className="flex flex-col gap-4 mt-2">
+              {socials.map((social) => (
+                <a
+                  key={social.label}
+                  href={social.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group flex items-center gap-4 text-muted-foreground hover:text-foreground transition-colors"
+                >
+                  <social.icon className="h-5 w-5 text-primary" />
+                  <div className="flex flex-col">
+                    <span className="text-xs text-primary font-medium">{social.label}</span>
+                    <span className="text-sm">{social.value}</span>
+                  </div>
+                </a>
+              ))}
+            </div>
+          </div>
+          
+          <ContactForm />
+        </div>
+      </div>
+    </section>
+  )
+}
