@@ -2,14 +2,9 @@ import { SectionHeader } from "./section-header"
 
 const timeline = [
   {
-    date: "2021",
-    title: "Stage de 3ème",
-    description: "Stage avec un site e-commerce \"artapisserie.fr\" où j'ai pu découvrir le HTML, le CSS ainsi que Symfony."
-  },
-  {
-    date: "2022",
-    title: "Stage de 2nde",
-    description: "Stage à Epitech, où j'ai exploré plusieurs domaines de l'informatique. Robotique / IA / Réseau"
+    date: "2025 - 2030",
+    title: "Epitech",
+    description: "Études en informatique à Epitech, approfondissement des compétences en développement et systèmes."
   },
   {
     date: "2023",
@@ -17,9 +12,14 @@ const timeline = [
     description: "Développement de mes compétences en informatique, notamment au travers de la spécialité NSI en première et terminale."
   },
   {
-    date: "2025 - 2030",
-    title: "Epitech",
-    description: "Études en informatique à Epitech, approfondissement des compétences en développement et systèmes."
+    date: "2022",
+    title: "Stage de 2nde",
+    description: "Stage à Epitech, où j'ai exploré plusieurs domaines de l'informatique. Robotique / IA / Réseau"
+  },
+  {
+    date: "2021",
+    title: "Stage de 3ème",
+    description: "Stage avec un site e-commerce \"artapisserie.fr\" où j'ai pu découvrir le HTML, le CSS ainsi que Symfony."
   },
 ]
 
