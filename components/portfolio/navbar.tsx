@@ -3,10 +3,10 @@
 import { useState } from "react"
 
 const navLinks = [
-  { label: "about", href: "#about", number: "01" },
-  { label: "projects", href: "#projects", number: "02" },
-  { label: "skills", href: "#skills", number: "03" },
-  { label: "contact", href: "#contact", number: "04" },
+  { label: "about",    href: "#about",    number: "01", color: "hsl(var(--primary))" },
+  { label: "projects", href: "#projects", number: "02", color: "hsl(var(--primthird))" },
+  { label: "skills",   href: "#skills",   number: "03", color: "hsl(var(--primthird))" },
+  { label: "contact",  href: "#contact",  number: "04", color: "hsl(var(--thirdary))" },
 ]
 
 export function Navbar() {
@@ -30,7 +30,7 @@ export function Navbar() {
               href={link.href}
               className="group flex items-baseline gap-1.5 text-sm text-muted-foreground hover:text-foreground transition-colors"
             >
-              <span className="text-[10px] text-primary leading-none">{link.number}</span>
+              <span style={{ color: link.color }} className="text-[10px] leading-none">{link.number}</span>
               <span>{link.label}</span>
             </a>
           ))}

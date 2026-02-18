@@ -12,14 +12,29 @@
   :root {
     --background: 220 15% 6%;
     --foreground: 210 20% 95%;
-    --card: 220 15% 9%;
+      --card: 220 15% 9%;
     --card-foreground: 210 20% 95%;
     --popover: 220 15% 9%;
     --popover-foreground: 210 20% 95%;
-    --primary: 20 95% 60%;
-    --primary-foreground: 0 0% 100%;
     --secondary: 220 12% 14%;
     --secondary-foreground: 210 15% 75%;
+
+    --primary-h: 30;
+    --primary-s: 90%;
+    --primary-l: 62%;
+
+    --thirdary-h: 60;
+    --thirdary-s: 85%;
+    --thirdary-l: 62%;
+    
+    --primary: var(--primary-h) var(--primary-s) var(--primary-l);
+    --thirdary: var(--thirdary-h) var(--thirdary-s) var(--thirdary-l);
+
+    --primthird-h: calc((var(--primary-h) * 0.6 + var(--thirdary-h) * 0.4));
+    --primthird-s: calc((var(--primary-s) * 0.6 + var(--thirdary-s) * 0.4));
+    --primthird-l: calc((var(--primary-l) * 0.6 + var(--thirdary-l) * 0.4));
+    --primthird: var(--primthird-h) var(--primthird-s) var(--primthird-l);
+
     --muted: 220 12% 14%;
     --muted-foreground: 215 12% 50%;
     --accent: 20 95% 60%;
@@ -85,4 +100,20 @@ html {
 }
 .animation-delay-400 {
   animation-delay: 400ms;
+}
+
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus {
+  -webkit-box-shadow: 0 0 0px 1000px hsl(var(--secondary)) inset;
+  -webkit-text-fill-color: hsl(var(--foreground));
+  caret-color: hsl(var(--foreground));
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus {
+  -webkit-box-shadow: 0 0 0px 1000px hsl(var(--secondary)) inset;
+  -webkit-text-fill-color: hsl(var(--foreground));
+  caret-color: hsl(var(--foreground));
 }

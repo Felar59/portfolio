@@ -3,6 +3,7 @@
 import React from "react"
 import { useEffect, useRef, useState } from "react"
 import { SectionHeader } from "./section-header"
+import { Description } from "@radix-ui/react-toast"
 
 const technologies = [
   {
@@ -77,6 +78,24 @@ const technologies = [
     ),
     description: "Terminal / Shell",
   },
+  {
+    name: "Unity",
+    icon: (
+      <svg viewBox="0 0 128 128" className="h-8 w-8">
+        <path fill="currentColor" d="m63.991 128 51.702-29.855-19.817-11.461-20.26 11.704a1.151 1.151 0 0 1-1.125-.009 1.145 1.145 0 0 1-.568-.975V69.608c0-.819.424-1.56 1.133-1.968L99.13 53.737a1.119 1.119 0 0 1 1.124.009c.352.195.572.564.576.966V78.11l19.83 11.454V29.855L63.99 62.566Zm0 0"></path><path fill="currentColor" d="m52.397 98.401-20.27-11.718-19.832 11.46L63.991 128V62.566L7.34 29.854V89.56l19.825-11.45V54.714c.009-.401.225-.77.572-.966a1.13 1.13 0 0 1 1.13-.009L52.953 67.64a2.275 2.275 0 0 1 1.133 1.97v27.8a1.156 1.156 0 0 1-.565.98 1.131 1.131 0 0 1-1.124.012"></path><path fill="currentColor" d="M68.959 0v22.9L89.22 34.597c.348.203.555.576.555.984 0 .403-.212.772-.555.975L65.137 50.468a2.302 2.302 0 0 1-2.27 0L38.791 36.556a1.122 1.122 0 0 1-.56-.975 1.127 1.127 0 0 1 .56-.984L59.048 22.9V0L7.339 29.855l56.652 32.711 56.665-32.71Zm0 0"></path>
+      </svg>
+    ),
+    description: "Game Engine",
+  },
+  {
+    name: "Docker",
+    icon: (
+      <svg viewBox="0 0 128 128" className="h-8 w-8">
+        <path fill="currentColor" d="M124.8 52.1c-4.3-2.5-10-2.8-14.8-1.4-.6-5.2-4-9.7-8-12.9l-1.6-1.3-1.4 1.6c-2.7 3.1-3.5 8.3-3.1 12.3.3 2.9 1.2 5.9 3 8.3-1.4.8-2.9 1.9-4.3 2.4-2.8 1-5.9 2-8.9 2H79V49H66V24H51v12H26v13H13v14H1.8l-.2 1.5c-.5 6.4.3 12.6 3 18.5l1.1 2.2.1.2c7.9 13.4 21.7 19 36.8 19 29.2 0 53.3-13.1 64.3-40.6 7.4.4 15-1.8 18.6-8.9l.9-1.8-1.6-1zM28 39h10v11H28V39zm13.1 44.2c0 1.7-1.4 3.1-3.1 3.1-1.7 0-3.1-1.4-3.1-3.1 0-1.7 1.4-3.1 3.1-3.1 1.7.1 3.1 1.4 3.1 3.1zM28 52h10v11H28V52zm-13 0h11v11H15V52zm27.7 50.2c-15.8-.1-24.3-5.4-31.3-12.4 2.1.1 4.1.2 5.9.2 1.6 0 3.2 0 4.7-.1 3.9-.2 7.3-.7 10.1-1.5 2.3 5.3 6.5 10.2 14 13.8h-3.4zM51 63H40V52h11v11zm0-13H40V39h11v11zm13 13H53V52h11v11zm0-13H53V39h11v11zm0-13H53V26h11v11zm13 26H66V52h11v11zM38.8 81.2c-.2-.1-.5-.2-.8-.2-1.2 0-2.2 1-2.2 2.2 0 1.2 1 2.2 2.2 2.2s2.2-1 2.2-2.2c0-.3-.1-.6-.2-.8-.2.3-.4.5-.8.5-.5 0-.9-.4-.9-.9.1-.4.3-.7.5-.8z"></path>
+      </svg>
+    ),
+    description: "Conteneurisation logicielle",
+  },
 ]
 
 function TechCard({
@@ -110,14 +129,17 @@ function TechCard({
   return (
     <div
       ref={ref}
-      className="group bg-card border border-border rounded-lg p-5 flex flex-col items-center gap-3 hover:border-primary/50 transition-all duration-300 hover:-translate-y-1"
+      className="group bg-card border border-border rounded-lg p-5 flex flex-col items-center gap-3 transition-all duration-300 hover:-translate-y-1 hover:-translate-y-1 hover:shadow-lg hover:shadow-primary/5 hover:border-transparent
+        hover:bg-[linear-gradient(var(--bg-color),var(--bg-color)),linear-gradient(to_bottom_right,hsl(var(--primary)),hsl(var(--primthird)),hsl(var(--thirdary)))]
+        bg-origin-border [background-clip:padding-box,border-box]"
       style={{
+        '--bg-color': 'hsl(var(--secondary))',
         opacity: isVisible ? 1 : 0,
         transform: isVisible ? "translateY(0)" : "translateY(20px)",
         transition: `opacity 0.5s ease ${index * 80}ms, transform 0.5s ease ${index * 80}ms, border-color 0.3s`,
-      }}
+      } as React.CSSProperties}
     >
-      <div className="text-muted-foreground group-hover:text-primary transition-colors duration-300">
+      <div className="text-muted-foreground group-hover:text-primthird transition-colors duration-300">
         {icon}
       </div>
       <span className="text-sm font-medium text-foreground">{name}</span>
@@ -132,7 +154,7 @@ export function Skills() {
   return (
     <section id="skills" className="py-24 px-6">
       <div className="mx-auto max-w-6xl">
-        <SectionHeader number="03" title="skills" />
+        <SectionHeader number="03" title="skills" color="hsl(var(--primthird))" />
 
         <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-4 gap-5">
           {technologies.map((tech, i) => (
