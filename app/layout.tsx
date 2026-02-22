@@ -15,9 +15,12 @@ const jetbrainsMono = JetBrains_Mono({
 })
 
 export const metadata: Metadata = {
-  title: 'Portfolio',
+  title: 'Félix Lecuyer',
   description: 'Developer portfolio - Design, Code, Create.',
-}
+  icons: {
+    icon: "/favicon.png",
+  },
+};
 
 export default function RootLayout({
   children,

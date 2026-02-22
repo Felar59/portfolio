@@ -17,7 +17,6 @@ export function Hero() {
             {"Software Engineer"}
           </p>
         </div>
-
         <div className="opacity-0 animate-fade-up animation-delay-200 mt-6">
           <p className="text-lg sm:text-xl text-muted-foreground max-w-lg leading-relaxed">
             {"Turning ideas into code."}
@@ -54,6 +53,8 @@ export function Hero() {
         <span className="text-xs text-muted-foreground tracking-wider">scroll</span>
         <ArrowDown className="h-4 w-4 text-muted-foreground animate-bounce" />
       </div>
+      <div className="absolute top-1/4 left-0 w-40 sm:w-60 lg:w-96 h-40 sm:h-60 lg:h-96 bg-primary/20 rounded-full blur-3xl animate-pulse [animation-delay:9s]" />
+      <div className="absolute top-2/4 right-0 w-40 sm:w-60 lg:w-96 h-40 sm:h-60 lg:h-96 bg-thirdary/20 rounded-full blur-3xl animate-pulse [animation-delay:1]" />
     </section>
   )
 }
