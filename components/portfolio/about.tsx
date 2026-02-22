@@ -85,7 +85,7 @@ export function About() {
               {"J’aime comprendre le fonctionnement des systèmes à bas niveau, expérimenter de nouvelles bibliothèques et outils, pour optimiser mes projets pour qu’ils soient clairs, structurés et performants."}
             </p>
             <p className="text-muted-foreground leading-relaxed">
-              {"En dehors du code, j'adore les jeux vidéo et j’en créer moi-même, notamment avec Unity."}
+              {"En dehors du code, j'aime les jeux vidéo et en créer moi-même, notamment avec Unity."}
             </p>
           </div>
 
